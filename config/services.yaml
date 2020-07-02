@@ -33,12 +33,6 @@ services:
         tags:
             - { name: controller.request_value_resolver }
 
-    notification.repository.message:
-        class: Test\Infrastructure\Repository\BalanceRepository
-        factory: ["@doctrine.orm.entity_manager", "getRepository"]
-        arguments:
-            - 'Test\Domain\Entity\Balance'
-
     Test\Domain\Repository\BalanceRepositoryInterface: '@Test\Infrastructure\Repository\BalanceRepository'
     Test\Infrastructure\Repository\BalanceRepository:
         factory: ['@doctrine.orm.entity_manager', 'getRepository']

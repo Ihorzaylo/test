@@ -5,7 +5,7 @@
 * docker-compose build
 * docker-compose up -d
 * docker-compose run php_test1 composer install
-* docker-compose run php_test1 chmod -R 777 var/cache
+* docker-compose run php_test1 chmod -R 777 var
 * docker-compose run php_test1 php bin/console doctrine:database:create
 * docker-compose run php_test1 php bin/console doctrine:migrations:migrate
 * .env and .docker/.env i already have committed 

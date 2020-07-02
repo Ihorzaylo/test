@@ -1,0 +1,9 @@
+---
+Test\Domain\ValueObject\Amount:
+    type: embeddable
+
+    fields:
+        value:
+            type: integer
+            options:
+                unsigned: false

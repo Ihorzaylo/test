@@ -1,0 +1,8 @@
+---
+Test\Domain\ValueObject\Type:
+    type: embeddable
+
+    fields:
+        value:
+            type: string
+            length: 255

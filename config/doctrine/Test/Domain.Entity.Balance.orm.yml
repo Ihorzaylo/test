@@ -1,0 +1,17 @@
+Test\Domain\Entity\Balance:
+    type: entity
+    repositoryClass: Test\Infrastructure\Repository\BalanceRepository
+    table: balance
+    id:
+        userId:
+            type: uuid
+            nullable: false
+            unique: true
+            id: true
+            generator:
+                strategy: NONE
+    embedded:
+        amount:
+            class: Test\Domain\ValueObject\Amount
+            columnPrefix: false
+    lifecycleCallbacks: {  }

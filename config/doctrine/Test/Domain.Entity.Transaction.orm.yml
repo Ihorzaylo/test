@@ -1,0 +1,29 @@
+Test\Domain\Entity\Transaction:
+    type: entity
+    repositoryClass: Test\Infrastructure\Repository\TransactionRepository
+    table: transaction
+    id:
+        transactionId:
+            type: uuid
+            nullable: false
+            id: true
+            unique: true
+            generator:
+                strategy: NONE
+    fields:
+        userId:
+            type: uuid
+            length: 36
+            nullable: false
+
+    embedded:
+        amount:
+            class: Test\Domain\ValueObject\Amount
+        type:
+            class: Test\Domain\ValueObject\Type
+
+
+    lifecycleCallbacks: {  }
+    entityListeners:
+        Test\Infrastructure\Entity\Listener\BalanceListener:
+            postPersist: [postPersist]

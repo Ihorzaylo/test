@@ -1,0 +1,41 @@
+version: "3"
+services:
+
+  nginx_test1:
+    image: nginx:latest
+    container_name: nginx_test1
+    ports:
+      - "${NGINX_PORT}:80"
+    links:
+      - php_test1
+    volumes:
+      - ./../:/app/test1
+      - ./nginx/conf.d/test1.template:/etc/nginx/conf.d/test1.template
+    command: /bin/sh -c "envsubst '$$NGINX_HOST' < /etc/nginx/conf.d/test1.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    env_file:
+      - .env
+
+  php_test1:
+    build: php-fpm
+    container_name: php_test1
+    volumes:
+      - ./../:/app/test1
+    working_dir: /app/test1
+    env_file:
+      - .env
+
+  test-postgresql:
+    image: postgres:11
+    container_name:  test-postgresql
+    environment:
+      POSTGRES_PASSWORD: asdfasdf
+      POSTGRES_USER: postgres
+    volumes:
+      - test_postgresql_data:/var/lib/postgresql/data
+    expose:
+      - "5432"
+    ports:
+      - "54322:5432"
+volumes:
+  test_postgresql_data:
+    driver: local

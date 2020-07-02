@@ -13,7 +13,7 @@
 
 ### Endpoints 
 * Swagger
-  http://localhost:8091/api/doc
+  http://localhost:8091/api/doc (swagger не повністю готовий тільки список ендпоінтів)
 * Create debit: 
     http://localhost:8091/api/transaction/debit
 * Create debit: 
@@ -23,5 +23,5 @@
 
 * Для уникнення параленлних запитів додав Lock `https://symfony.com/doc/current/components/lock.html`.
 Це позволить уникнути виконання запиту якшо не виконався попередній запит. 
-(це має пацювати через Redis, але тут я зробив через дефолтнй стандартний store )
+(це має працювати через Redis, але тут я зробив через дефолтнй стандартний store )
 

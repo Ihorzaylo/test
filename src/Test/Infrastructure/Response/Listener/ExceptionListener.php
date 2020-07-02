@@ -18,7 +18,7 @@ class ExceptionListener
     public function onKernelException(ExceptionEvent $event)
     {
         $exception = $event->getThrowable();
-var_dump($exception->getMessage());die();
+
         $event->setResponse(XMLResponse::error());
     }
 }

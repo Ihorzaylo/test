@@ -70,7 +70,7 @@ class TransactionController
      * )
      *
      *
-     * @return JsonResponse
+     * @return XMLResponse
      */
     public function credit(
         LockerInterface $locker,
